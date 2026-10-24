@@ -175,3 +175,11 @@ This writes `wheelie_assist64.dlo` and `wheelie_assist64.dli` to `build\`. Copy 
 
 `include/` holds the plugin structures from PiBoSo's official examples
 ([output plugin](https://www.mx-bikes.com/downloads/mxb_example.c), [input plugin](https://www.kartracing-pro.com/downloads/input_int.c)).
+
+---
+
+## License
+
+The source is public so you can see exactly what the plugin does, and it will keep improving. For now
+**redistribution is not allowed**: please don't re-upload or mirror it. Link to this repository or
+[bala.lat](https://bala.lat) instead, so everyone gets the latest version. See [LICENSE](LICENSE) for the full terms.

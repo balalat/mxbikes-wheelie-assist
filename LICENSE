@@ -1,0 +1,24 @@
+Wheelie Assist for MX Bikes
+Copyright (c) 2026 bala.lat. All rights reserved.
+
+The source code is published so anyone can read it and see what the plugin does.
+Publishing it does not grant any license beyond the following:
+
+- You may download the official release from https://github.com/balalat/mxbikes-wheelie-assist
+  or https://bala.lat and use it for personal play.
+- You may read the source and build it for your own personal use.
+
+You may not, without written permission:
+
+- re-upload, mirror or redistribute the plugin or its source, modified or not;
+- publish modified versions or derivative works;
+- sell it or include it in paid or bundled packages.
+
+To share the mod, link to the GitHub repository or https://bala.lat instead.
+
+The files in include/ come from PiBoSo's official plugin examples and remain under
+their original authors' terms.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED.
+IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY
+ARISING FROM THE USE OF THE SOFTWARE.
