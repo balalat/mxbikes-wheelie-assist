@@ -12,7 +12,7 @@
 typedef struct
 {
 	const char *name;
-	float target, maxAngle, engageAngle, lookahead, kp, brakeStart, brakeGain, leanGain;
+	float target, maxAngle, engageAngle, lookahead, kp, brakeStart, brakeGain, leanStart, leanGain;
 } WAPreset;
 
 #define WA_NUM_PRESETS 5

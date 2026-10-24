@@ -33,11 +33,11 @@ static void ini_str(const char *ini, const char *sec, const char *key, const cha
 
 const WAPreset wa_presets[WA_NUM_PRESETS - 1] =
 {
-	/* name			target	max		engage	look	kp		bstart	bgain	lean */
-	{ "gentle",		25.0f,	50.0f,	5.0f,	0.40f,	0.045f,	3.0f,	0.08f,	0.08f },
-	{ "normal",		35.0f,	65.0f,	6.0f,	0.30f,	0.035f,	6.0f,	0.06f,	0.06f },
-	{ "high",		50.0f,	72.0f,	8.0f,	0.30f,	0.030f,	6.0f,	0.06f,	0.05f },
-	{ "protection",	60.0f,	70.0f,	45.0f,	0.30f,	0.030f,	4.0f,	0.08f,	0.06f },
+	/* name			target	max		engage	look	kp		bstart	bgain	lstart	lean */
+	{ "gentle",		25.0f,	50.0f,	5.0f,	0.40f,	0.045f,	1.0f,	0.08f,	6.0f,	0.08f },
+	{ "normal",		35.0f,	65.0f,	6.0f,	0.30f,	0.035f,	2.0f,	0.06f,	8.0f,	0.06f },
+	{ "high",		50.0f,	72.0f,	8.0f,	0.30f,	0.030f,	2.0f,	0.06f,	8.0f,	0.05f },
+	{ "protection",	60.0f,	70.0f,	45.0f,	0.30f,	0.030f,	1.0f,	0.08f,	6.0f,	0.06f },
 };
 
 void wa_preset_apply(int index, WAParams *p)
@@ -54,6 +54,7 @@ void wa_preset_apply(int index, WAParams *p)
 	p->kp = s->kp;
 	p->brakeStart = s->brakeStart;
 	p->brakeGain = s->brakeGain;
+	p->leanStart = s->leanStart;
 	p->leanGain = s->leanGain;
 }
 
@@ -124,9 +125,10 @@ void wa_config_load(WAConfig *c, char *iniPathOut, int iniPathSize)
 	c->assist.kp = ini_float(ini, "assist", "kp", 0.035f);
 	c->assist.lookahead = ini_float(ini, "assist", "lookahead", 0.30f);
 	c->assist.ki = ini_float(ini, "assist", "ki", 0.03f);
-	c->assist.brakeStart = ini_float(ini, "assist", "brake_start", 6.0f);
+	c->assist.brakeStart = ini_float(ini, "assist", "brake_start", 2.0f);
 	c->assist.brakeGain = ini_float(ini, "assist", "brake_gain", 0.06f);
 	c->assist.minSpeed = ini_float(ini, "assist", "min_speed", 1.5f);
+	c->assist.leanStart = ini_float(ini, "assist", "lean_start", 8.0f);
 	c->assist.leanGain = ini_float(ini, "assist", "lean_gain", 0.06f);
 	c->pitchSign = ini_float(ini, "assist", "pitch_sign", -1.0f) < 0 ? -1.0f : 1.0f;
 	c->groundTau = ini_float(ini, "assist", "ground_tau", 0.3f);

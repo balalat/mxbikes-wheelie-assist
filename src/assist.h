@@ -2,9 +2,9 @@
 Wheelie assist control law. Pure code (no Windows / game dependencies) so it can be simulated offline.
 
 It acts on three things only: rider lean front/back, throttle and rear brake.
-- lean: shifted forward when the nose is predicted too high, back when it is predicted too low
+- lean: shifted forward when the nose is predicted too high, back when it is predicted too low (big errors only)
 - throttle: the rider's throttle capped by a limit computed from the predicted wheelie angle (never adds throttle)
-- rear brake: added when the nose is predicted to overshoot the target
+- rear brake: added when the nose is predicted to overshoot the target. Acts before lean, it is the smoother fix
 */
 #pragma once
 
@@ -20,7 +20,8 @@ typedef struct
 	float brakeStart;		/* degrees of predicted overshoot before rear brake starts */
 	float brakeGain;		/* rear brake per degree beyond brakeStart */
 	float minSpeed;			/* m/s, below this the assist is idle */
-	float leanGain;			/* lean added per degree of predicted error (+ = forward) */
+	float leanStart;		/* degrees of predicted error (either way) before lean helps. Above brakeStart so brake acts first */
+	float leanGain;			/* lean added per degree beyond leanStart (+ = forward) */
 } WAParams;
 
 typedef struct

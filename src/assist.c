@@ -30,8 +30,14 @@ void wa_assist_step(const WAParams *p, WAState *s, const WABike *b, const WACont
 	/* predicted error: positive means the nose will be too high */
 	err = (b->angle - p->target) + p->lookahead * b->rate;
 
-	/* lean: forward when too high, back when too low */
-	lean = clampf(user->lean + p->leanGain * err, -1.0f, 1.0f);
+	/* lean: forward when too high, back when too low. Only beyond lean_start, so the rear brake (which starts
+	   earlier) handles small corrections and the rider's weight only shifts for big ones */
+	lean = user->lean;
+	if (err > p->leanStart)
+		lean += p->leanGain * (err - p->leanStart);
+	else if (err < -p->leanStart)
+		lean += p->leanGain * (err + p->leanStart);
+	lean = clampf(lean, -1.0f, 1.0f);
 
 	cap = p->hover + s->integ - p->kp * err;
 	/* only adapt while the cap is what limits the throttle (anti-windup) */

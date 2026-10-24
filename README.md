@@ -17,9 +17,10 @@ Tested on MX Bikes beta21 (64-bit).
 - **Works with any control setup.** Xbox-style pads, PlayStation pads through Steam Input, plus DirectInput devices
   (keyboard, controllers without Steam Input, wheels, handlebars).
 - **Acts like a rider would:**
-  - leans you **forward** when the front is about to come up too far, and **back** when it's dropping
   - **cuts throttle** as you approach the balance point. It never adds throttle you didn't give.
-  - adds **rear brake** to bring the front down when needed
+  - adds **rear brake** to bring the front down when needed. Small corrections come from the brake first, for a
+    smoother wheelie
+  - leans you **forward** when the front is coming up well too far, and **back** when it's dropping a lot
 - **5 assist modes**, switchable while riding:
 
   | # | Mode | Holds | Feel |
@@ -37,7 +38,7 @@ Tested on MX Bikes beta21 (64-bit).
 
 ## Installation
 
-1. Download `WheelieAssist_v1.0.zip` from the [latest release](https://github.com/balalat/mxbikes-wheelie-assist/releases/latest).
+1. Download `WheelieAssist_v1.1.zip` from the [latest release](https://github.com/balalat/mxbikes-wheelie-assist/releases/latest).
 2. Extract the zip into your MX Bikes folder, usually
    `C:\Program Files (x86)\Steam\steamapps\common\MX Bikes`.
    The zip contains a `plugins` folder, so the files land in `MX Bikes\plugins\`:
